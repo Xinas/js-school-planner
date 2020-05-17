@@ -114,7 +114,7 @@ export class Homework {
 
   /**
    * Set the state of the homework.
-   * @param {Object} isDone - The homework's new state.
+   * @param {boolean} isDone - The homework's new state.
    */
   set isDone(isDone) {
     this._isDone = isDone;
