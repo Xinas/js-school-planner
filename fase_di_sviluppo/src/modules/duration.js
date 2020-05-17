@@ -5,7 +5,7 @@
  * extension of the class Date.
  * 
  * @file This file defines the Duration class.
- * @author Andrea Lanzani
+ * @author Andrea Lanzani, Fabio Casetta
  * Everyone who modifies this file MUST add his/her name
  * @version 1.0alpha
  */
@@ -21,9 +21,50 @@ export class Duration extends Date {
   /**
    * Create a duration.
    */
+   /**
+   * @type {Date}
+   * @private
+   */
+   var date;
+   /**
+   * @type {number}
+   * @private
+   **/
+   var duration
+   
   constructor() {
     // Remember to use 'super()' to call the
     // constructor of the class 'Date':
     // super();
+  }
+  
+  /**
+  * This is a function setDate
+  *
+  * @param {Date} new date
+  */
+  function setDate(date){
+  			//change attributeof class date
+  }
+  
+   /**
+  * This is a function setDuration
+  *
+  * @param {number} new duration
+  */
+  function setDate(duration){
+  			//change attributeof class duration
+  }
+  
+  /**
+  * This is a function check busy
+  *
+  * s@param {Date}  date
+  * @param {number}  duration
+  *
+  * @return {boolean} check
+  */
+  function isBusy(date, duration){
+  			//Check if there is already something
   }
 }
