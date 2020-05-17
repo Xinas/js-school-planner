@@ -5,7 +5,8 @@
  * extension of the class Date.
  * 
  * @file This file defines the Duration class.
- * @author Andrea Lanzani, Fabio Casetta
+ * @author Andrea Lanzani
+ * @author Fabio Casetta
  * Everyone who modifies this file MUST add his/her name
  * @version 1.0alpha
  */
@@ -19,52 +20,61 @@
  */
 export class Duration extends Date {
   /**
-   * Create a duration.
-   */
-   /**
-   * @type {Date}
+   * Create a duration in minute.
+   * 
+   * @type {Date} _date
    * @private
-   */
-   var date;
-   /**
-   * @type {number}
+   * @type {number} _duration
    * @private
+   * 
+   * @param {Date} new date
+   * @param {number} new duration
    **/
-   var duration
-   
-  constructor() {
+  constructor(date, duration) {
     // Remember to use 'super()' to call the
     // constructor of the class 'Date':
     // super();
+    this._date = date;
+    this._duration = duration;
   }
   
   /**
-  * This is a function setDate
+  * This is a method setDate
   *
   * @param {Date} new date
   */
-  function setDate(date){
-  			//change attributeof class date
+  setDate(date){
+        //change attributeof class date
+        this._date = date;
   }
   
    /**
-  * This is a function setDuration
+  * This is a method setDuration
   *
   * @param {number} new duration
   */
-  function setDate(duration){
-  			//change attributeof class duration
+  setDate(duration){
+        //change attributeof class duration
+        this._duration = duration;
   }
   
   /**
-  * This is a function check busy
+  * This is a method check busy
   *
-  * s@param {Date}  date
+  * @param {Date}  date
   * @param {number}  duration
   *
-  * @return {boolean} check
+  * @return {boolean} isBusy
   */
-  function isBusy(date, duration){
-  			//Check if there is already something
+  isBusy(date, duration){
+        //Check if there is already something
+        var isBusy = true;
+        var hour = this._date.getMinutes() + (this._date.getMinutes()*60);
+        var hourDuration = ore + this._duration;
+        var hourNew = date.getMinutes + (date.getHours*60);
+        var hourDurationNew = hourNew + duration;
+        if(this._date.getDate() == date.getDate() && hour >= hourNew || hourNew < hourDuration || hour <= hourDurationNew || hourDurationNew < hourDuration)
+          isBusy = false;
+        return isBusy
   }
 }
