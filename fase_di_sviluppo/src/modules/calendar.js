@@ -5,7 +5,8 @@
  * represent a list of homework.
  * 
  * @file This file defines Calendar class.
- * @author Frabcesco Colombo
+ * @author Andrea Lanzani
+ * @author Francesco Colombo
  * Everyone who modifies this file MUST add his/her name
  * @version 1.0alpha
  */
@@ -19,31 +20,24 @@
 
 export class Calendar {
 
-  private homework: Homework[];
-  private vettElement : number;
-
   constructor() {
-        this.homework = null;
-        this.vettElement = 0;
+        this._homework = null;
   }
 
-  getNumeberElements(){
-        return this.vettElement;
-  }
-
-  addHomework(homework : Homework){
+  addHomework(homework){
       
-    if(homework.duration.isBusy()){
+    if(!homework.duration.isBusy()){
         this.homework.push(homework);
-        this.vettElement++;
     }
-    else
-        window.alert("Could not enter assignment");
+    else{
+      window.alert("Could not enter assignment");
+    }
+        
   }
 
-  findHomework(title : string, subject : Subjec){
+  findHomework(title, subject){
 
-    let element : Homework;
+    let element;
     if(title!=null)
         element = this.find(title,"title");
     else if(subject!= null)
@@ -53,12 +47,12 @@ export class Calendar {
     //element will appear somehow maybe by document.getElemetById().innerHtml or .value
   }
 
-  private find(type : any,propertis : string){
+   find(type,propertis){
 
-    let isFind : Boolean;
+    let isFind;
     let i = 0;
     isFind = false;
-    while(isFind == false && i<this.vettElement){
+    while(isFind == false && i<this.homework.length){
 
         if(this.homework[i].propertis == type)
             isFind = true;
@@ -71,9 +65,9 @@ export class Calendar {
         return null;
   }
 
-  removeHomework(title : string){
+  removeHomework(title){
 
-    let element : Homework;
+    let element;
     let index;
     element = this.find(title,"title");
     if(element!=null){
