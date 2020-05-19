@@ -22,13 +22,8 @@ export class Duration extends Date {
   /**
    * Create a duration in minute.
    * 
-   * @type {Date} _date
-   * @private
-   * @type {number} _duration
-   * @private
-   * 
-   * @param {Date} new date
-   * @param {number} new duration
+   * @param {Date} date - The starting date
+   * @param {number} duration - The duration
    **/
   constructor(date, duration) {
     // Remember to use 'super()' to call the
@@ -70,11 +65,11 @@ export class Duration extends Date {
         //Check if there is already something
         var isBusy = true;
         var hour = this._date.getMinutes() + (this._date.getMinutes()*60);
-        var hourDuration = ore + this._duration;
+        var hourDuration = hour + this._duration;
         var hourNew = date.getMinutes + (date.getHours*60);
         var hourDurationNew = hourNew + duration;
         if(this._date.getDate() == date.getDate() && hour >= hourNew || hourNew < hourDuration || hour <= hourDurationNew || hourDurationNew < hourDuration)
           isBusy = false;
-        return isBusy
+        return isBusy;
   }
 }
