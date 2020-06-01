@@ -5,7 +5,7 @@
  * defines a school task.
  * 
  * @file This file defines Homework class.
- * @author Riccardo Ronconi
+ * @author Andrea Lanzani, Riccardo Ronconi
  * Everyone who modifies this file MUST add his/her name
  * @version 1.0alpha
  */
@@ -25,10 +25,10 @@ export class Homework {
    * Create a homework.
    * 
    * @param {string} title - The title of the homework.
-   * @param {Date} deadline - The date of the homework's deadline.
+   * @param {Date} deadline - The homework's deadline.
    * @param {Duration} duration - The duration of the homework.
    * @param {Subject} subject - The subject of the homework.
-   * @param {boolean} idDone - Whether the homework is done.
+   * @param {boolean} isDone - Whether the homework is done.
    * @param {?string} description - The description of the homework.
    */
   constructor(title, deadline, duration, subject, isDone, description) {
@@ -141,9 +141,18 @@ export class Homework {
    * @return {number} The number of days remaining from the homework's deadline.
    */
   getDaysRemaining() {
-    var today = Date.now();
+    var today = new Date();
     var diffTime = Math.abs(this.deadline - today);
     var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays;
+  }
+
+  /**
+   * Get a string representation of the object.
+   * @return {string} The string representation of the object.
+   */
+  toString() {
+    return 'Title: ' + title + '\nDeadline: ' + deadline.toString() +
+      '\nDuration: ' + duration.toString() + '\nSubject: ' + subject + '\nDescription: ' + description;
   }
 }
