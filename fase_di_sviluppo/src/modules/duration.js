@@ -19,61 +19,66 @@
  * @extends Date
  */
 export class Duration extends Date {
+
   /**
    * Create a duration in minute.
    * 
-   * @param {Date} date - The starting date
-   * @param {number} duration - The duration
-   **/
-  constructor(date, duration) {
-    // Remember to use 'super()' to call the
-    // constructor of the class 'Date':
-    // super();
-    this._date = date;
+   * @param {number} duration - Duration in seconds.
+   * @param {...any} args - Arguments of the superclass Date.
+   */
+  constructor(duration, ...args) {
+    super(args);
     this._duration = duration;
   }
-  
+
   /**
-  * This is a method setDate
-  *
-  * @param {Date} new date
-  */
-  setDate(date){
-        //change attributeof class date
-        this._date = date;
+   * Set the duration of the object.
+   * 
+   * @param {number} duration - The object's new duration in seconds.
+   */
+  set duration(duration) {
+    //change attributeof class duration
+    this._duration = duration;
   }
-  
-   /**
-  * This is a method setDuration
-  *
-  * @param {number} new duration
-  */
-  setDate(duration){
-        //change attributeof class duration
-        this._duration = duration;
-  }
-  
+
   /**
-  * This is a method check busy
-  *
-  * @param {Date}  date
-  * @param {number}  duration
-  *
-  * @return {boolean} isBusy
-  */
-  isBusy(date, duration){
-        //Check if there is already something
-        var isBusy = true;
-        var hour = this._date.getMinutes() + (this._date.getMinutes()*60);
-        var hourDuration = hour + this._duration;
-        var hourNew = date.getMinutes + (date.getHours*60);
-        var hourDurationNew = hourNew + duration;
-        if(this._date.getDate() == date.getDate() && hour >= hourNew || hourNew < hourDuration || hour <= hourDurationNew || hourDurationNew < hourDuration)
-          isBusy = false;
-        return isBusy;
+   * Get the duration of the object.
+   * 
+   * @return {number} The duration of the object in seconds.
+   */
+  get duration() {
+    return this._duration;
   }
-  toString(){
-    console.log("The homewrok is " + date.toString() + "and lasts " + duration + "minutes");
-    return "The homewrok is " + date.toString() + "and lasts " + duration + "minutes";
+
+  /**
+   * Checks whether a certain time is already busy.
+   * @todo Refactor the method.
+   * @todo Test the method.
+   * 
+   * @param {Date} date 
+   * @param {number} duration 
+   * 
+   * @return {boolean} True if it's already busy; false otherwise.
+   */
+  isBusy(date, duration) {
+    //Check if there is already something
+    var isBusy = true;
+    var hour = this._date.getMinutes() + (this._date.getMinutes() * 60);
+    var hourDuration = hour + this._duration;
+    var hourNew = date.getMinutes + (date.getHours * 60);
+    var hourDurationNew = hourNew + duration;
+    if (this._date.getDate() == date.getDate() && hour >= hourNew || hourNew < hourDuration || hour <= hourDurationNew || hourDurationNew < hourDuration) {
+      isBusy = false;
+    }
+    return isBusy;
+  }
+
+  /**
+   * Get a string representation of the object.
+   * 
+   * @return {string} The string representation of the object.
+   */
+  toString() {
+    return `Start date: ${super.toString()}\nDuration (s): ${this._duration}`;
   }
 }
