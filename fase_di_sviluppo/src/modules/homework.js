@@ -5,7 +5,8 @@
  * defines a school task.
  * 
  * @file This file defines Homework class.
- * @author Andrea Lanzani, Riccardo Ronconi
+ * @author Andrea Lanzani
+ * @author Riccardo Ronconi
  * Everyone who modifies this file MUST add his/her name
  * @version 1.0alpha
  */
@@ -13,10 +14,7 @@
 import { Duration } from './duration.js';
 import { Subject } from './subject.js';
 
-/**
- * @todo Implement this class.
- * @todo Write the documentation.
- * 
+/** 
  * Class representing a school homework.
  */
 export class Homework {
@@ -28,10 +26,10 @@ export class Homework {
    * @param {Date} deadline - The homework's deadline.
    * @param {Duration} duration - The duration of the homework.
    * @param {Subject} subject - The subject of the homework.
-   * @param {boolean} isDone - Whether the homework is done.
+   * @param {boolean} isDone - Tells whether the homework is done.
    * @param {?string} description - The description of the homework.
    */
-  constructor(title, deadline, duration, subject, isDone, description) {
+  constructor(title, deadline, duration, subject, isDone, description = '') {
     this._title = title;
     this._deadline = deadline;
     this._duration = duration;
