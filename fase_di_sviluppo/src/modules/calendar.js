@@ -20,10 +20,11 @@
 
 export class Calendar {
 
-  constructor() {
-        this._homework = null;
-  }
+  _homework: Homework;
 
+  constructor() {
+        this._homework = new Homework();
+  }
   addHomework(homework){
       
     if(!homework.duration.isBusy()){
@@ -31,8 +32,7 @@ export class Calendar {
     }
     else{
       window.alert("Could not enter assignment");
-    }
-        
+    }    
   }
 
   findHomework(title, subject){
@@ -41,46 +41,50 @@ export class Calendar {
     if(title!=null)
         element = this.find(title,"title");
     else if(subject!= null)
-        element = this.find
-        (subject,"subject");
+        element = this.find(subject,"subject");
 
-    //element will appear somehow maybe by document.getElemetById().innerHtml or .value
+    console.log(element);
   }
 
-   find(type,propertis){
+   findType1(type,properties){
 
-    let isFind;
+    let found = false;
     let i = 0;
-    isFind = false;
-    while(isFind == false && i<this.homework.length){
+    while(found == false && i<this.homework.length){
 
-        if(this.homework[i].propertis == type)
-            isFind = true;
+        if(this.homework[i].properties == type)
+            found = true;
         else 
             i++;
     }
-    if(isFind == true)
-        return this.homework[i];
+    if(found == true)
+        console.log(this.homework[i]);
     else
-        return null;
+        console.log("Not found");
   }
+  findType2(){//semplice prova
 
-  removeHomework(title){
+    for (const property in this._homework) {
+      console.log(`${property}: ${this._homework[property]}`);
+    }
+  }
+   removeHomework(title){
 
     let element;
     let index;
     element = this.find(title,"title");
     if(element!=null){
-
         index = this.homework.indexOf(element);
         this.homework.splice(index,1);
     }
     else
-        window.alert("could not remove item");
+        console.log("could not remove item");
+  }
+  toJSON(){
+    var JSONfile = JSON.stringify(this.homework);
   }
 
-  toJSON(){
-
-    var JSONfile = JSON.stringify(this.homework);
+  toString(){
+    console.log(this._homework);
   }
 }
