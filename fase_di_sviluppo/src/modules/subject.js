@@ -63,6 +63,6 @@ export class Subject {
   * @return {string} The string representation of the object.
   */
   toString() {
-    return 'Name: ' + this._name + '\nIs laboratory: ' + this._isLab;
+    return `Name: ${this._name}\nIs laboratory: ${this._isLab}`;
   }
 }
