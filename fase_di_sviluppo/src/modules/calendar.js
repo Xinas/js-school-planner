@@ -80,6 +80,6 @@ export class Calendar {
    * @returns {string} The string representation of the object.
    */
   toString() {
-    return this._homework.toString();
+    return this._homework.join('\n');
   }
 }
