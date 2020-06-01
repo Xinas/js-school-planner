@@ -72,4 +72,8 @@ export class Duration extends Date {
           isBusy = false;
         return isBusy;
   }
+  toString(){
+    console.log("The homewrok is " + date.toString() + "and lasts " + duration + "minutes");
+    return "The homewrok is " + date.toString() + "and lasts " + duration + "minutes";
+  }
 }
