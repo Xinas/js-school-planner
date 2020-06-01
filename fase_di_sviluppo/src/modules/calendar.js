@@ -11,80 +11,75 @@
  * @version 1.0alpha
  */
 
+import { Homework } from './homework.js';
+
 /**
  * @todo Implement this class.
  * @todo Write the documentation.
  * 
  * Class representing a calendar.
  */
-
 export class Calendar {
 
-  _homework: Homework;
-
+  /**
+   * Create calendar object.
+   */
   constructor() {
-        this._homework = new Homework();
+    this._homework = [];
   }
-  addHomework(homework){
-      
-    if(!homework.duration.isBusy()){
-        this.homework.push(homework);
+
+  /**
+   * Push a homework to the array.
+   * @todo Check if another homework is due for that date.
+   * 
+   * @param {Homework} homework - The homework to add to the array.
+   * @returns {boolean} True if the push was succesful, false otherwise.
+   */
+  addHomework(homework) {
+    this._homework.push(homework);
+    return true;
+  }
+
+  /**
+   * Finds the first homework that has the title passed via arguments.
+   * @todo Add the possibility to find homework by other parameters.
+   * 
+   * @param {string} title - The title of the homework to find.
+   * @returns {Homework} The homework found.
+   */
+  findHomework(title) {
+    return this._homework.find(el => el.title === title);
+  }
+
+  /**
+   * Removes the first homework that has the title passed via arguments.
+   * @todo Add the possibility to find homework by other parameters.
+   * 
+   * @param {string} title - The title of the homework to remove.
+   * @returns {boolean} True if it has removed the homework. False otherwise.
+   */
+  removeHomework(title) {
+    const index = this._homework.findIndex(el => el.title === title);
+    if (index > -1) {
+      this._homework.splice(index, 1);
+      return true;
     }
-    else{
-      window.alert("Could not enter assignment");
-    }    
+    return false;
   }
 
-  findHomework(title, subject){
-
-    let element;
-    if(title!=null)
-        element = this.find(title,"title");
-    else if(subject!= null)
-        element = this.find(subject,"subject");
-
-    console.log(element);
+  /**
+   * @todo Implement this method
+   */
+  toJSON() {
+    // Implement method
   }
 
-   findType1(type,properties){
-
-    let found = false;
-    let i = 0;
-    while(found == false && i<this.homework.length){
-
-        if(this.homework[i].properties == type)
-            found = true;
-        else 
-            i++;
-    }
-    if(found == true)
-        console.log(this.homework[i]);
-    else
-        console.log("Not found");
-  }
-  findType2(){//semplice prova
-
-    for (const property in this._homework) {
-      console.log(`${property}: ${this._homework[property]}`);
-    }
-  }
-   removeHomework(title){
-
-    let element;
-    let index;
-    element = this.find(title,"title");
-    if(element!=null){
-        index = this.homework.indexOf(element);
-        this.homework.splice(index,1);
-    }
-    else
-        console.log("could not remove item");
-  }
-  toJSON(){
-    var JSONfile = JSON.stringify(this.homework);
-  }
-
-  toString(){
-    console.log(this._homework);
+  /**
+   * Get a string representation of the object
+   * 
+   * @returns {string} The string representation of the object.
+   */
+  toString() {
+    return this._homework.toString();
   }
 }
