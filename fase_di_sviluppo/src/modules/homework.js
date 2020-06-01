@@ -150,7 +150,7 @@ export class Homework {
    * @return {string} The string representation of the object.
    */
   toString() {
-    return 'Title: ' + title + '\nDeadline: ' + deadline.toString() +
-      '\nDuration: ' + duration.toString() + '\nSubject: ' + subject + '\nDescription: ' + description;
+    return 'Title: ' + this._title + '\nDeadline: ' + this._deadline.toString() +
+      '\nDuration: ' + this._duration.toString() + '\nSubject: ' + this._subject + '\nDescription: ' + this._description;
   }
 }
