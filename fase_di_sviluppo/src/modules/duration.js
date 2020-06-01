@@ -21,7 +21,7 @@
 export class Duration extends Date {
 
   /**
-   * Create a duration in minute.
+   * Create a duration ojbect.
    * 
    * @param {number} duration - Duration in seconds.
    * @param {...any} args - Arguments of the superclass Date.
