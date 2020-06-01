@@ -24,6 +24,8 @@ jobs:
       
       # Install your dependencies
       - run: npm ci
+      - working-directory: ./fase_di_sviluppo/src/
       
       # Run ESLint
       - uses: eslint/github-action@v0
+      - working-directory: ./fase_di_sviluppo/src/
