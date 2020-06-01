@@ -18,11 +18,18 @@
   },
   "homepage": "https://github.com/Xinas/js-school-planner#readme",
   "eslintConfig": {
-    "plugins": ["github"],
-    "extends": ["plugin:github/browser"],
+    "plugins": [
+      "github"
+    ],
+    "extends": [
+      "plugin:github/browser"
+    ],
     "env": {
       "browser": true,
       "es6": true
     }
+  },
+  "devDependencies": {
+    "eslint": "^7.1.0"
   }
 }
