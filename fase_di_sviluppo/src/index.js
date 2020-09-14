@@ -2,9 +2,17 @@ import { Calendar } from './modules/calendar.js';
 import { Homework } from './modules/homework.js';
 import { Duration } from './modules/duration.js';
 import { Subject } from './modules/subject.js';
+
+import { App } from './components/app.js';
+import { Details } from './components/details.js';
+
 import items from './items.js';
 
-const subjectsNames = ['Matematica', 'Inglese', 'Italiano', 'Storia'];
+customElements.define('x-details', Details);
+customElements.define('x-app', App);
+document.querySelector('x-app').items = items.calendar;
+
+/*const subjectsNames = ['Matematica', 'Inglese', 'Italiano', 'Storia'];
 
 let calendar = new Calendar();
 for (let i = 0; i < 10; i++) {
@@ -22,3 +30,4 @@ document.querySelector('body').append(document.createElement('p'));
 document.querySelector('body').append(JSON.stringify(cal2));
 console.log(calendar);
 console.log(calendar.toString());
+*/

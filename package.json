@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "es-dev-server --app-index index.html --node-resolve --watch --open"
+    "serve": "es-dev-server --app-index fase_di_sviluppo/src/index.html --node-resolve --watch --open"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/Xinas/js-school-planner#readme",
   "dependencies": {
     "@vaadin/vaadin": "^15.0.6",
+    "@vaadin/vaadin-date-time-picker": "^1.4.0",
     "lit-element": "^2.4.0"
   },
   "devDependencies": {
