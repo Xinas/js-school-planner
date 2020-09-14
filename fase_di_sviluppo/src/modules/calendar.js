@@ -23,9 +23,12 @@ export class Calendar {
 
   /**
    * Create calendar object.
+   * 
+   * @param {Array<Homework>} obj - Array used for copy constructor
    */
-  constructor() {
+  constructor(obj) {
     this._homework = [];
+    obj && Object.assign(this._homework, obj);
   }
 
   /**
@@ -68,10 +71,14 @@ export class Calendar {
   }
 
   /**
-   * @todo Implement this method
+   * Used by the JSON.stringify method to enable the transformation of an 
+   * object's data for JavaScript Object Notation (JSON) serialization.
    */
   toJSON() {
     // Implement method
+    return  {
+      calendar: this._homework
+    }
   }
 
   /**

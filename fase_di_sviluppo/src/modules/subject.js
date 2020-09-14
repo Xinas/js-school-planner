@@ -59,6 +59,17 @@ export class Subject {
   }
   
   /**
+   * Used by the JSON.stringify method to enable the transformation of an 
+   * object's data for JavaScript Object Notation (JSON) serialization.
+   */
+  toJSON() {
+    return {
+      name: this.name,
+      isLab: this._isLab
+    }
+  }
+
+  /**
   * Get a string representation of the object.
   * @return {string} The string representation of the object.
   */

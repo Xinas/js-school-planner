@@ -74,6 +74,17 @@ export class Duration extends Date {
   }
 
   /**
+   * Used by the JSON.stringify method to enable the transformation of an 
+   * object's data for JavaScript Object Notation (JSON) serialization.
+   */
+  toJSON() {
+    return {
+      seconds: this._duration,
+      start: super.toJSON()
+    }
+  }
+
+  /**
    * Get a string representation of the object.
    * 
    * @return {string} The string representation of the object.

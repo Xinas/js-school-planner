@@ -146,6 +146,21 @@ export class Homework {
   }
 
   /**
+   * Used by the JSON.stringify method to enable the transformation of an 
+   * object's data for JavaScript Object Notation (JSON) serialization.
+   */
+  toJSON() {
+    return {
+      title: this._title,
+      deadline: this._deadline, 
+      duration: this._duration,
+      subject: this._subject,
+      isDone: this._isDone,
+      description: this._description
+    }
+  }
+
+  /**
    * Get a string representation of the object.
    * @return {string} The string representation of the object.
    */
