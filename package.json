@@ -1,0 +1,30 @@
+{
+  "name": "js-school-planner",
+  "version": "1.0.0",
+  "description": "Questo progetto è stato realizzato come compito scolastico. Per questa ragione, non accetteremo nessun contributo. Il regolamento sotto è solo per uso interno al gruppo.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "es-dev-server --app-index index.html --node-resolve --watch --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xinas/js-school-planner.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xinas/js-school-planner/issues"
+  },
+  "homepage": "https://github.com/Xinas/js-school-planner#readme",
+  "dependencies": {
+    "@vaadin/vaadin": "^15.0.6",
+    "lit-element": "^2.4.0"
+  },
+  "devDependencies": {
+    "es-dev-server": "^1.57.4"
+  }
+}
